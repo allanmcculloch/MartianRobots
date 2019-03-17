@@ -1,18 +1,24 @@
 package com.allanmcculloch.martianrobots.providers
 
-import com.allanmcculloch.martianrobots.commands.Forward
-import com.allanmcculloch.martianrobots.commands.Left
-import com.allanmcculloch.martianrobots.commands.Right
+import com.allanmcculloch.martianrobots.model.Coordinate
 import com.allanmcculloch.martianrobots.model.Orientation
+import com.allanmcculloch.martianrobots.model.World
 import junit.framework.Assert.assertEquals
-import junit.framework.Assert.assertTrue
+import org.junit.Before
 import org.junit.Test
 
 class RobotProviderTest {
+    lateinit var robotProvider: RobotProvider
+    var world : World = World(Coordinate(0,0), Coordinate(5,3))
+
+    @Before
+    fun Setup() {
+        robotProvider = RobotProvider(world)
+    }
 
     @Test
     fun getsRobotEast() {
-        var robot = RobotProvider.createRobot("1 1 E")
+        var robot = robotProvider.createRobot("1 1 E")
 
         assertEquals(1, robot.position.x)
         assertEquals(1, robot.position.y)
@@ -21,7 +27,7 @@ class RobotProviderTest {
 
     @Test
     fun getsRobotNorth() {
-        var robot = RobotProvider.createRobot("3 2 N")
+        var robot = robotProvider.createRobot("3 2 N")
 
         assertEquals(3, robot.position.x)
         assertEquals(2, robot.position.y)
@@ -30,7 +36,7 @@ class RobotProviderTest {
 
     @Test
     fun getsRobotWest() {
-        var robot = RobotProvider.createRobot("0 3 W")
+        var robot = robotProvider.createRobot("0 3 W")
 
         assertEquals(0, robot.position.x)
         assertEquals(3, robot.position.y)
@@ -39,13 +45,10 @@ class RobotProviderTest {
 
     @Test
     fun getsRobotSouth() {
-        var robot = RobotProvider.createRobot("3 2 S")
+        var robot = robotProvider.createRobot("3 2 S")
 
-        assertEquals(10, robot.position.x)
-        assertEquals(10, robot.position.y)
+        assertEquals(3, robot.position.x)
+        assertEquals(2, robot.position.y)
         assertEquals(robot.orientation.toString(), Orientation.South.toString())
     }
-
-
-
 }

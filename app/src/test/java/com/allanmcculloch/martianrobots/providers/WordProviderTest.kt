@@ -1,12 +1,11 @@
 package com.allanmcculloch.martianrobots.providers
 
 import com.allanmcculloch.martianrobots.model.World
-import junit.framework.Assert
+import junit.framework.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
 class WorldProviderTest {
-
     lateinit var world : World
 
     @Before
@@ -16,21 +15,18 @@ class WorldProviderTest {
 
     @Test
     fun getWorldTopBoundsSetCorrectly() {
-
-        Assert.assertEquals(5, world?.topBound?.x)
-        Assert.assertEquals(3, world?.topBound?.y)
+        assertEquals(5, world?.topBound?.x)
+        assertEquals(3, world?.topBound?.y)
     }
 
     @Test
     fun bottomBoundsZero() {
-
-        Assert.assertEquals(0, world?.bottomBound?.x)
-        Assert.assertEquals(0, world?.bottomBound?.y)
+        assertEquals(0, world?.bottomBound?.x)
+        assertEquals(0, world?.bottomBound?.y)
     }
 
     @Test
     fun robotsListInitiallyZero() {
-
-        Assert.assertEquals(0, world?.robots?.count())
+        assertEquals(0, world?.robots?.count())
     }
 }

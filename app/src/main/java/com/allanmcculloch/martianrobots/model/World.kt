@@ -1,8 +1,8 @@
 package com.allanmcculloch.martianrobots.model
 
 class World(
-    var bottomBound : Coordinate? = null,
-    var topBound : Coordinate? = null,
+    var bottomBound : Coordinate,
+    var topBound : Coordinate,
     var robots : MutableList<Robot> = mutableListOf(),
     var scentedPoints : MutableList<Coordinate> = mutableListOf()
 ) {

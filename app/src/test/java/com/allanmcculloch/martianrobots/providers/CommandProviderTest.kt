@@ -8,7 +8,6 @@ import junit.framework.Assert.assertTrue
 import org.junit.Test
 
 class CommandProviderTest {
-
     @Test
     fun getsLeftCommandFromL() {
         var command = CommandProvider.getCommand('L')
@@ -32,7 +31,6 @@ class CommandProviderTest {
 
     @Test
     fun getsMultipleCommandsFromStringCorrectCount() {
-
         var commands = CommandProvider.getCommandList("LLFFFLFLFR")
 
         assertEquals(10, commands.count())
@@ -40,7 +38,6 @@ class CommandProviderTest {
 
     @Test
     fun getsMultipleCommandsFromStringCorrectTypes() {
-
         var commands = CommandProvider.getCommandList("LLFFFLFLFR")
 
         assertTrue(commands[0] is Left)

@@ -7,8 +7,6 @@ class ExecuteCommandsTest {
 
     @Test
     fun executeCommands() {
-
-
         var output = ExecuteCommands().Execute(testData)
 
         assertEquals(expectedOutput, output)
@@ -25,9 +23,9 @@ FRRFLLFFRRFLL
 LLFFFLFLFL
 """
 
-    var expectedOutput ="""11E
-33NLOST
-23S
+    var expectedOutput ="""1 1 E
+3 3 N LOST
+2 3 S
 """
 
 }
