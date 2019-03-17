@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Martian Robots</string>
-    <string name="action_settings">Settings</string>
+    <string name="process_commands">Process commands</string>
+    <string name="output">Output</string>
+    <string name="commands">Commands</string>
+    <string name="enter_commands">Enter Commands</string>
 </resources>

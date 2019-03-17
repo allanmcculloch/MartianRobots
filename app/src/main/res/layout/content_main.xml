@@ -9,36 +9,48 @@
         tools:showIn="@layout/activity_main"
         tools:context=".MainActivity">
 
-    <EditText
-            android:id="@+id/commands"
+    <TextView
+            android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Commands"
-            android:lines="6"
+            android:text="@string/enter_commands"
+            android:textSize="20sp"
             android:gravity="top"
             android:layout_marginTop="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
+    <EditText
+            android:id="@+id/commandsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/commands"
+            android:lines="6"
+            android:gravity="top"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header"/>
+
     <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/commandButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Process commands"
+            android:text="@string/process_commands"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/commands"/>
+            app:layout_constraintTop_toBottomOf="@id/commandsText"/>
 
     <TextView
-            android:id="@+id/result"
+            android:id="@+id/resultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Output"
+            android:text="@string/output"
             android:lines="6"
             android:gravity="top"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/commandButton"/>

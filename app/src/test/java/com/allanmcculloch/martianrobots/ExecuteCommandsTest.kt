@@ -14,9 +14,7 @@ class ExecuteCommandsTest {
         assertEquals(expectedOutput, output)
     }
 
-
-    var testData ="""
-5 3
+    var testData ="""5 3
 1 1 E
 RFRFRFRF
 
