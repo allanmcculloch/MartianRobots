@@ -11,4 +11,11 @@ class RobotTest {
 
         assertEquals("4 3 W", robot.toString())
     }
+
+    @Test
+    fun getStringReturnsCorrectlyIfLost() {
+        var robot = Robot(Coordinate(1,2), Orientation.East, true)
+
+        assertEquals("1 2 E LOST", robot.toString())
+    }
 }

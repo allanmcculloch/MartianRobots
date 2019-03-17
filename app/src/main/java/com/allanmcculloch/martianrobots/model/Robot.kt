@@ -4,7 +4,8 @@ import com.allanmcculloch.martianrobots.commands.BaseCommand
 
 class Robot(
     var position : Coordinate,
-    var orientation : Orientation) {
+    var orientation : Orientation,
+    var isLost : Boolean = false) {
 
     fun executeCommand(command : BaseCommand) : Robot {
         command.execute(this)
@@ -18,6 +19,11 @@ class Robot(
         return this
     }
 
-    override fun toString() =
-        "$position $orientation"
+    override fun toString() : String {
+
+        val lostText = if (isLost) " LOST" else ""
+
+        return "$position $orientation$lostText"
+    }
+
 }
