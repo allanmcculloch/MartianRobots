@@ -1,10 +1,18 @@
 package com.allanmcculloch.martianrobots.model
 
-class World {
-    var bottomBoundX : Int = 0
-    var bottomBoundY : Int = 0
-    var topBoundX : Int  = 0
-    var topBoundY : Int = 0
-    var robots = mutableListOf<Robot>()
-    var scentedPoints = mutableListOf<Coordinate>()
+class World(
+    var bottomBound : Coordinate? = null,
+    var topBound : Coordinate? = null,
+    var robots : MutableList<Robot> = mutableListOf(),
+    var scentedPoints : MutableList<Coordinate> = mutableListOf()
+) {
+    fun robotStatus(): String {
+        var output : StringBuilder = StringBuilder()
+
+        robots.forEach {
+            output.append("$it\n")
+        }
+
+        return output.toString()
+    }
 }

@@ -10,35 +10,6 @@
         tools:context=".MainActivity">
 
     <EditText
-            android:id="@+id/worldEndX"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Top World X"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-    <EditText
-            android:id="@+id/worldEndY"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:hint="Top World Y"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/worldEndX"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/setWorldSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Set world size"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/worldEndY"/>
-
-    <EditText
             android:id="@+id/commands"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +19,7 @@
             android:layout_marginTop="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setWorldSize"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/commandButton"

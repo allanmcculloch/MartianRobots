@@ -12,4 +12,8 @@ class Forward : BaseCommand() {
             Orientation.West -> robot.position.x--
         }
     }
+
+    companion object {
+        const val CommandCode = 'F'
+    }
 }

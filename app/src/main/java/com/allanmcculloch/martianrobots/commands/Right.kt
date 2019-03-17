@@ -12,4 +12,8 @@ class Right : BaseCommand() {
             Orientation.West -> robot.orientation = Orientation.North
         }
     }
+
+    companion object {
+        const val CommandCode = 'R'
+    }
 }

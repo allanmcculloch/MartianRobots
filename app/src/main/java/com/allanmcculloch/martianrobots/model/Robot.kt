@@ -11,6 +11,13 @@ class Robot(
         return this
     }
 
+    fun executeCommands(commands : List<BaseCommand>) : Robot {
+        commands.forEach {
+            executeCommand(it)
+        }
+        return this
+    }
+
     override fun toString() =
         "$position $orientation"
 }
