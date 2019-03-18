@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,9 +15,13 @@ class MainActivity : AppCompatActivity() {
         commandButton.setOnClickListener {
             var commands = commandsText.text.toString()
 
-            val output = CommandParser().Execute(commands)
-
-            resultText.text = output
+            try {
+                val output = CommandParser().Execute(commands)
+                resultText.text = output
+            }
+            catch (e : Exception) {
+                resultText.text = e.message
+            }
         }
     }
 }

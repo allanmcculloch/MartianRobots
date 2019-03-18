@@ -23,7 +23,7 @@ class CommandParser {
                     // continue
                 }
                 else if (line.length > maxCommandLength) {
-                    throw Exception("Command length more than 100 characters at $index")
+                    throw Exception("Command length more than 100 characters at line ${index+1}")
                 }
                 else if (! ::world.isInitialized) {
                     val newWorld = WorldProvider.setupWorld(line)
@@ -42,7 +42,7 @@ class CommandParser {
                 }
             }
             catch(e : Exception) {
-                throw Exception("Failed at line $index", e)
+                throw Exception("Failed at line ${index +1} - ${e?.message}")
             }
         }
 

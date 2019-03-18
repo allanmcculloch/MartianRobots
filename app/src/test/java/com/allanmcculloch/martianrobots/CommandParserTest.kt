@@ -11,7 +11,7 @@ class CommandParserTest {
         assertEquals(expectedOutput, output)
     }
 
-    var testData ="""5 3
+    val testData ="""5 3
 1 1 E
 RFRFRFRF
 
@@ -22,7 +22,7 @@ FRRFLLFFRRFLL
 LLFFFLFLFL
 """
 
-    var expectedOutput ="""1 1 E
+    val expectedOutput ="""1 1 E
 3 3 N LOST
 2 3 S
 """
