@@ -1,6 +1,6 @@
 # Problem: Martian Robots
 
-A solution to the martian robots problem implemented in Kotlin. The solution features:
+A solution to the "Martian Robots" problem (described below) implemented in Kotlin. The solution features:
 
 - A simple Android app to enter the commands and see the output
 - A unit test executing the command parser with the sample input and checking the correct output
@@ -10,7 +10,7 @@ A solution to the martian robots problem implemented in Kotlin. The solution fea
 
 Future improvements:
 
-- Improve the UI
+- Improve the UI / Add MVVM etc. 
 
 
 ### The Problem
