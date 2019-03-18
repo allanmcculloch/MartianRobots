@@ -83,7 +83,7 @@ LLFFFLFLFL
     private val badCommand = "BADCOMMAND"
     private val commandWithTooHighCoordinate = "5 3\n99 1 E"
     private val commandMoreThan100Characters = "sadfasdfhadsjkfhasdfjkshdfjkahsdfjkhsdfjweurfhafnasidnviosdfsgdsfgdfsadnvsadfasdfisadjfsjdfoijsdfijsdfoisajdfojaisdfadosfijifj"
-    private val tooLargeCoordinateError = "Failed at line 2 - The value for any co-ordinate cannot be higher than 50"
+    private val tooLargeCoordinateError = "Failed at line 2 - The value for any co-ordinate cannot be higher than 50 or lower than 0"
     private val invalidCommandError = "Failed at line 1 - For input string: \"BADCOMMAND\""
     private val tooLongCommmandError = "Failed at line 1 - Command length more than 100 characters"
 }

@@ -16,6 +16,6 @@ class CoordinateValidatorTest {
     fun testInvalid() {
         assertFalse(CoordinateValidator.validateCoordinate(51))
         assertFalse(CoordinateValidator.validateCoordinate(1300))
-        assertFalse(CoordinateValidator.validateCoordinate(-1))
+        assertFalse(CoordinateValidator.validateCoordinate(-5))
     }
 }

@@ -27,7 +27,8 @@ class Robot(
         get() = position.y
 
     private fun updatePosition(newPosition : Coordinate) {
-        if (newPosition.x > world.topBound.x || newPosition.y > world.topBound.y) {
+        if (newPosition.x > world.topBound.x || newPosition.y > world.topBound.y
+            || newPosition.y < world.bottomBound.y || newPosition.x < world.bottomBound.x) {
             robotLost()
             return
         }

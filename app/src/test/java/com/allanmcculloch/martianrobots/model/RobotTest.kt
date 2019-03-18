@@ -49,6 +49,28 @@ class RobotTest {
     }
 
     @Test
+    fun lostIfMovesOutOfBoundsLowerX() {
+        val robot = Robot(Coordinate(0,3), Orientation.West, false, world)
+
+        assertFalse(robot.isLost)
+
+        robot.positionX--
+
+        assertTrue(robot.isLost)
+    }
+
+    @Test
+    fun lostIfMovesOutOfBoundsLowerY() {
+        val robot = Robot(Coordinate(1,0), Orientation.South, false, world)
+
+        assertFalse(robot.isLost)
+
+        robot.positionY--
+
+        assertTrue(robot.isLost)
+    }
+
+    @Test
     fun leavesScentWhenMovesOutOfBoundsY() {
         val initialCoordinate = Coordinate(1,3)
         val robot = Robot(initialCoordinate, Orientation.North, false, world)
