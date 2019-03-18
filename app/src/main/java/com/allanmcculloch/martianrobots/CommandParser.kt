@@ -7,42 +7,37 @@ import com.allanmcculloch.martianrobots.providers.RobotProvider
 import com.allanmcculloch.martianrobots.providers.WorldProvider
 import java.lang.Exception
 
-class ExecuteCommands {
-    val maxCommandLegth = 100
+class CommandParser {
+    val maxCommandLength = 100
 
-    lateinit var robotProvider : RobotProvider
     lateinit var world : World
+    private lateinit var robotProvider : RobotProvider
+    private var currentRobot : Robot? = null
 
     fun Execute(input : String) : String {
-
         val commandLines = input.split('\n')
-        var currentRobot : Robot? = null
 
         commandLines.forEachIndexed { index, line ->
             try {
-                if (line.isNullOrEmpty() || line.isBlank()) {
+                if (line.isEmpty() || line.isBlank()) {
                     // continue
                 }
-                else if (line.length > maxCommandLegth) {
+                else if (line.length > maxCommandLength) {
                     throw Exception("Command length more than 100 characters at $index")
                 }
                 else if (! ::world.isInitialized) {
-                    var newWorld = WorldProvider.setupWorld(line)
-                    robotProvider = RobotProvider(newWorld)
+                    val newWorld = WorldProvider.setupWorld(line)
+                    this.robotProvider = RobotProvider(newWorld)
                     world = newWorld
                 }
                 else if (currentRobot != null) {
                     val commands = CommandProvider.getCommandList(line)
-
                     currentRobot?.executeCommands(commands)
-
                     currentRobot = null
                 }
                 else { // create robot
                     val robot = robotProvider.createRobot(line)
-
-                    world.robots.add(robot)
-
+                    this.world.robots.add(robot)
                     currentRobot = robot
                 }
             }

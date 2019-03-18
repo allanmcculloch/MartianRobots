@@ -20,8 +20,8 @@ class RobotProviderTest {
     fun getsRobotEast() {
         var robot = robotProvider.createRobot("1 1 E")
 
-        assertEquals(1, robot.position.x)
-        assertEquals(1, robot.position.y)
+        assertEquals(1, robot.positionX)
+        assertEquals(1, robot.positionY)
         assertEquals(robot.orientation.toString(), Orientation.East.toString())
     }
 
@@ -29,8 +29,8 @@ class RobotProviderTest {
     fun getsRobotNorth() {
         var robot = robotProvider.createRobot("3 2 N")
 
-        assertEquals(3, robot.position.x)
-        assertEquals(2, robot.position.y)
+        assertEquals(3, robot.positionX)
+        assertEquals(2, robot.positionY)
         assertEquals(robot.orientation.toString(), Orientation.North.toString())
     }
 
@@ -38,8 +38,8 @@ class RobotProviderTest {
     fun getsRobotWest() {
         var robot = robotProvider.createRobot("0 3 W")
 
-        assertEquals(0, robot.position.x)
-        assertEquals(3, robot.position.y)
+        assertEquals(0, robot.positionX)
+        assertEquals(3, robot.positionY)
         assertEquals(robot.orientation.toString(), Orientation.West.toString())
     }
 
@@ -47,8 +47,8 @@ class RobotProviderTest {
     fun getsRobotSouth() {
         var robot = robotProvider.createRobot("3 2 S")
 
-        assertEquals(3, robot.position.x)
-        assertEquals(2, robot.position.y)
+        assertEquals(3, robot.positionX)
+        assertEquals(2, robot.positionY)
         assertEquals(robot.orientation.toString(), Orientation.South.toString())
     }
 }

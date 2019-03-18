@@ -1,7 +1,6 @@
 package com.allanmcculloch.martianrobots.helpers
 
 object CoordinateValidator {
-
     private const val maxCoordinateValue = 50
 
     fun throwIfOutOfRange(value : Int)

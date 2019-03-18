@@ -15,8 +15,8 @@ class LeftTest : BaseCommandTest() {
         robot.executeCommand(command)
 
         assertEquals(Orientation.West, robot.orientation)
-        assertEquals(1, robot.position.y) // unchanged
-        assertEquals(1, robot.position.x) // unchanged
+        assertEquals(1, robot.positionY) // unchanged
+        assertEquals(1, robot.positionX) // unchanged
     }
 
     @Test
@@ -26,8 +26,8 @@ class LeftTest : BaseCommandTest() {
         robot.executeCommand(command)
 
         assertEquals(Orientation.East, robot.orientation)
-        assertEquals(1, robot.position.y) // unchanged
-        assertEquals(1, robot.position.x) // unchanged
+        assertEquals(1, robot.positionY) // unchanged
+        assertEquals(1, robot.positionX) // unchanged
     }
 
     @Test
@@ -37,8 +37,8 @@ class LeftTest : BaseCommandTest() {
         robot.executeCommand(command)
 
         assertEquals(Orientation.North, robot.orientation)
-        assertEquals(1, robot.position.y) // unchanged
-        assertEquals(1, robot.position.x) // unchanged
+        assertEquals(1, robot.positionY) // unchanged
+        assertEquals(1, robot.positionX) // unchanged
     }
 
     @Test
@@ -48,7 +48,7 @@ class LeftTest : BaseCommandTest() {
         robot.executeCommand(command)
 
         assertEquals(Orientation.South, robot.orientation)
-        assertEquals(1, robot.position.y) // unchanged
-        assertEquals(1, robot.position.x) // unchanged
+        assertEquals(1, robot.positionY) // unchanged
+        assertEquals(1, robot.positionX) // unchanged
     }
 }

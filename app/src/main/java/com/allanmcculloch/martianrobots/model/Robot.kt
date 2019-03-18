@@ -3,29 +3,45 @@ package com.allanmcculloch.martianrobots.model
 import com.allanmcculloch.martianrobots.commands.BaseCommand
 
 class Robot(
-    private var _position : Coordinate,
+    private var position : Coordinate,
     var orientation : Orientation,
     var isLost : Boolean = false,
     var world : World) {
 
-    var position : Coordinate = _position.copy()
+    var positionX : Int
+        set(newX) {
+            if (isLost)
+                return
 
-    fun updateX(newX : Int) {
-        if (newX > world.topBound.x) {
-            isLost = true
+            updatePosition(Coordinate(newX, position.y))
         }
-        else {
-            _position.x = newX
+        get() = position.x
+
+    var positionY : Int
+        set(newY) {
+            if (isLost)
+                return
+
+            updatePosition(Coordinate(position.x, newY))
         }
+        get() = position.y
+
+    private fun updatePosition(newPosition : Coordinate) {
+        if (newPosition.x > world.topBound.x || newPosition.y > world.topBound.y) {
+            robotLost()
+            return
+        }
+
+        position = newPosition
     }
 
-    fun updateY(newY : Int) {
-        if (newY > world.topBound.y) {
-            isLost = true
+    private fun robotLost() {
+        if(world.isPositionScented(position)) {
+            return
         }
-        else {
-            _position.y = newY
-        }
+
+        world.scentedPoints.add(position)
+        isLost = true
     }
 
     fun executeCommand(command : BaseCommand) : Robot {

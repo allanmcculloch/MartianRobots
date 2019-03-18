@@ -15,4 +15,8 @@ class World(
 
         return output.toString()
     }
+
+    fun isPositionScented(position : Coordinate) : Boolean {
+        return scentedPoints.contains(position)
+    }
 }

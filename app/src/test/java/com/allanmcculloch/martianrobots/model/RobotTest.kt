@@ -1,10 +1,16 @@
 package com.allanmcculloch.martianrobots.model
 
 import junit.framework.Assert.*
+import org.junit.Before
 import org.junit.Test
 
 class RobotTest {
-    var world : World = World(Coordinate(0,0),Coordinate(5,3))
+    lateinit var world : World
+
+    @Before
+    fun setup() {
+        world = World(Coordinate(0,0),Coordinate(5,3))
+    }
 
     @Test
     fun getStringReturnsCorrectly() {
@@ -26,7 +32,7 @@ class RobotTest {
 
         assertFalse(robot.isLost)
 
-        robot.updateX(robot.position.x + 1)
+        robot.positionX++
 
         assertTrue(robot.isLost)
     }
@@ -37,8 +43,50 @@ class RobotTest {
 
         assertFalse(robot.isLost)
 
-        robot.updateY(robot.position.y + 1)
+        robot.positionY++
 
         assertTrue(robot.isLost)
+    }
+
+    @Test
+    fun leavesScentWhenMovesOutOfBoundsY() {
+        val initialCoordinate = Coordinate(1,3)
+        var robot = Robot(initialCoordinate, Orientation.North, false, world)
+
+        assertFalse(robot.isLost)
+
+        robot.positionY++
+
+        assertTrue(world.isPositionScented(initialCoordinate))
+    }
+
+    @Test
+    fun leavesScentWhenMovesOutOfBoundsX() {
+        val initialCoordinate = Coordinate(5,3)
+        var robot = Robot(initialCoordinate, Orientation.East, false, world)
+
+        assertFalse(robot.isLost)
+
+        robot.positionX++
+
+        assertTrue(world.isPositionScented(initialCoordinate))
+    }
+
+    @Test
+    fun doesNotMoveOutOfBoundsIfScent() {
+        val initialCoordinate = Coordinate(5,3)
+        var robot = Robot(initialCoordinate, Orientation.East, false, world)
+
+        assertFalse(robot.isLost)
+        robot.positionX++
+
+        assertTrue(robot.isLost)
+        assertTrue(world.isPositionScented(initialCoordinate))
+
+        var robot2 = Robot(initialCoordinate, Orientation.East, false, world)
+
+        assertFalse(robot2.isLost)
+        robot.positionX++
+        assertFalse(robot2.isLost)
     }
 }

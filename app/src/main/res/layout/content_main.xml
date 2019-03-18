@@ -23,10 +23,11 @@
 
     <EditText
             android:id="@+id/commandsText"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="@string/commands"
-            android:lines="6"
+            android:text="@string/sample_commands"
+            android:lines="10"
             android:gravity="top"
             android:layout_marginTop="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -48,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/output"
+            android:textSize="18sp"
             android:lines="6"
             android:gravity="top"
             android:layout_marginTop="40dp"

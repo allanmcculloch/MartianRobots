@@ -13,7 +13,7 @@ class CoordinateValidatorTest {
     }
 
     @Test
-    fun TestInvalid() {
+    fun testInvalid() {
 
         assertFalse(CoordinateValidator.validateCoordinate(51))
         assertFalse(CoordinateValidator.validateCoordinate(1300))

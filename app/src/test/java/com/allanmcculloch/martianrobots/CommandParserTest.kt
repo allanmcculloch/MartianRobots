@@ -3,11 +3,10 @@ package com.allanmcculloch.martianrobots
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 
-class ExecuteCommandsTest {
-
+class CommandParserTest {
     @Test
     fun executeCommands() {
-        var output = ExecuteCommands().Execute(testData)
+        val output = CommandParser().Execute(testData)
 
         assertEquals(expectedOutput, output)
     }
@@ -29,5 +28,3 @@ LLFFFLFLFL
 """
 
 }
-
-

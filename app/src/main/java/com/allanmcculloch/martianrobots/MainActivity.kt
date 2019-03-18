@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
             var commands = commandsText.text.toString()
 
-            val output = ExecuteCommands().Execute(commands)
+            val output = CommandParser().Execute(commands)
 
             resultText.text = output
         }
