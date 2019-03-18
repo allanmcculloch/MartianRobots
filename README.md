@@ -4,7 +4,7 @@ A solution to the martian robots problem implemented in Kotlin. The solution fea
 
 - A simple Android app to enter the commands and see the output
 - A unit test executing the command parser with the sample input and checking the correct output
-- Commands for Left, Right and Forward with unit tests, can easily extend to add more
+- Commands for Left, Right and Forward with unit tests, can be easily extended to add more commands
 
 Future improvements:
 
