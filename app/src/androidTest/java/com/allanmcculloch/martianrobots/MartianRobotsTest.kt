@@ -41,10 +41,19 @@ class MartianRobotsTest {
     @Test
     fun coordinateHigherThan50ShowsError() {
         mainActivityScreen.clearCommands()
-        mainActivityScreen.enterCommand("5 3\n99 1 E")
+        mainActivityScreen.enterCommand(commandWithTooHighCoordinate)
         mainActivityScreen.closeKeyboard()
         mainActivityScreen.clickCommandButton()
         mainActivityScreen.checkResultTextHasValue(tooLargeCoordinateError)
+    }
+
+    @Test
+    fun commandMoreThan100CharactersShowsError() {
+        mainActivityScreen.clearCommands()
+        mainActivityScreen.enterCommand(commandMoreThan100Characters)
+        mainActivityScreen.closeKeyboard()
+        mainActivityScreen.clickCommandButton()
+        mainActivityScreen.checkResultTextHasValue(tooLongCommmandError)
     }
 
     val testData ="""5 3
@@ -64,6 +73,9 @@ LLFFFLFLFL
 """
 
     val badCommand = "BADCOMMAND"
+    val commandWithTooHighCoordinate = "5 3\n99 1 E"
+    val commandMoreThan100Characters = "sadfasdfhadsjkfhasdfjkshdfjkahsdfjkhsdfjweurfhafnasidnviosdfsgdsfgdfsadnvsadfasdfisadjfsjdfoijsdfijsdfoisajdfojaisdfadosfijifj"
     val tooLargeCoordinateError = "Failed at line 2 - The value for any co-ordinate cannot be higher than 50"
     val invalidCommandError = "Failed at line 1 - For input string: \"BADCOMMAND\""
+    val tooLongCommmandError = "Failed at line 1 - Command length more than 100 characters"
 }
