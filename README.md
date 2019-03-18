@@ -1,5 +1,17 @@
 # Problem: Martian Robots
 
+A solution to the martian robots problem implemented in Kotlin. The solution features:
+
+- A simple Android app to enter the commands and see the output
+- A unit test executing the command parser with the sample input and checking the correct output
+- Commands for Left, Right and Forward with unit tests, can easily extend to add more
+
+Future improvements:
+
+- More error checking
+- Improve the UI
+
+
 ### The Problem
 
 The surface of Mars can be modelled by a rectangular grid around which robots are able to move according to instructions provided from Earth. You are to write a program that determines each sequence of robot positions and reports the final position of the robot.
