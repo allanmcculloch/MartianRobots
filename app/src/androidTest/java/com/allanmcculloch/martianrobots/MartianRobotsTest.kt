@@ -22,41 +22,49 @@ class MartianRobotsTest {
 
     @Test
     fun processSampleInputAndCheckOutput() {
-        mainActivityScreen.clearCommands()
-        mainActivityScreen.enterCommand(testData)
-        mainActivityScreen.closeKeyboard()
-        mainActivityScreen.clickCommandButton()
-        mainActivityScreen.checkResultTextHasValue(expectedOutput)
+        with(mainActivityScreen) {
+            clearCommands()
+            enterCommand(testData)
+            closeKeyboard()
+            clickCommandButton()
+            checkResultTextHasValue(expectedOutput)
+        }
     }
 
     @Test
     fun badCommandShowsError() {
-        mainActivityScreen.clearCommands()
-        mainActivityScreen.enterCommand(badCommand)
-        mainActivityScreen.closeKeyboard()
-        mainActivityScreen.clickCommandButton()
-        mainActivityScreen.checkResultTextHasValue(invalidCommandError)
+        with(mainActivityScreen) {
+            clearCommands()
+            enterCommand(badCommand)
+            closeKeyboard()
+            clickCommandButton()
+            checkResultTextHasValue(invalidCommandError)
+        }
     }
 
     @Test
     fun coordinateHigherThan50ShowsError() {
-        mainActivityScreen.clearCommands()
-        mainActivityScreen.enterCommand(commandWithTooHighCoordinate)
-        mainActivityScreen.closeKeyboard()
-        mainActivityScreen.clickCommandButton()
-        mainActivityScreen.checkResultTextHasValue(tooLargeCoordinateError)
+        with(mainActivityScreen) {
+            clearCommands()
+            enterCommand(commandWithTooHighCoordinate)
+            closeKeyboard()
+            clickCommandButton()
+            checkResultTextHasValue(tooLargeCoordinateError)
+        }
     }
 
     @Test
     fun commandMoreThan100CharactersShowsError() {
-        mainActivityScreen.clearCommands()
-        mainActivityScreen.enterCommand(commandMoreThan100Characters)
-        mainActivityScreen.closeKeyboard()
-        mainActivityScreen.clickCommandButton()
-        mainActivityScreen.checkResultTextHasValue(tooLongCommmandError)
+        with(mainActivityScreen) {
+            clearCommands()
+            enterCommand(commandMoreThan100Characters)
+            closeKeyboard()
+            clickCommandButton()
+            checkResultTextHasValue(tooLongCommmandError)
+        }
     }
 
-    val testData ="""5 3
+    private val testData ="""5 3
 1 1 E
 RFRFRFRF
 
@@ -67,15 +75,15 @@ FRRFLLFFRRFLL
 LLFFFLFLFL
 """
 
-    val expectedOutput ="""1 1 E
+    private val expectedOutput ="""1 1 E
 3 3 N LOST
 2 3 S
 """
 
-    val badCommand = "BADCOMMAND"
-    val commandWithTooHighCoordinate = "5 3\n99 1 E"
-    val commandMoreThan100Characters = "sadfasdfhadsjkfhasdfjkshdfjkahsdfjkhsdfjweurfhafnasidnviosdfsgdsfgdfsadnvsadfasdfisadjfsjdfoijsdfijsdfoisajdfojaisdfadosfijifj"
-    val tooLargeCoordinateError = "Failed at line 2 - The value for any co-ordinate cannot be higher than 50"
-    val invalidCommandError = "Failed at line 1 - For input string: \"BADCOMMAND\""
-    val tooLongCommmandError = "Failed at line 1 - Command length more than 100 characters"
+    private val badCommand = "BADCOMMAND"
+    private val commandWithTooHighCoordinate = "5 3\n99 1 E"
+    private val commandMoreThan100Characters = "sadfasdfhadsjkfhasdfjkshdfjkahsdfjkhsdfjweurfhafnasidnviosdfsgdsfgdfsadnvsadfasdfisadjfsjdfoijsdfijsdfoisajdfojaisdfadosfijifj"
+    private val tooLargeCoordinateError = "Failed at line 2 - The value for any co-ordinate cannot be higher than 50"
+    private val invalidCommandError = "Failed at line 1 - For input string: \"BADCOMMAND\""
+    private val tooLongCommmandError = "Failed at line 1 - Command length more than 100 characters"
 }
