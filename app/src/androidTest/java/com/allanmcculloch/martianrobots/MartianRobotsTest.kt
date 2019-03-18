@@ -8,7 +8,6 @@ import org.junit.Rule
 import org.junit.Test
 
 class MartianRobotsTest {
-
     val mainActivityScreen = MainActivityScreen()
 
     @get:Rule
@@ -19,8 +18,6 @@ class MartianRobotsTest {
     fun useAppContext() {
         val appContext = InstrumentationRegistry.getTargetContext()
         assertEquals("com.allanmcculloch.martianrobots", appContext.packageName)
-
-        //TODO: Add UITest
     }
 
     @Test
@@ -41,7 +38,6 @@ class MartianRobotsTest {
         mainActivityScreen.checkResultTextHasValue(invalidCommandError)
     }
 
-
     @Test
     fun coordinateHigherThan50ShowsError() {
         mainActivityScreen.clearCommands()
@@ -50,7 +46,6 @@ class MartianRobotsTest {
         mainActivityScreen.clickCommandButton()
         mainActivityScreen.checkResultTextHasValue(tooLargeCoordinateError)
     }
-
 
     val testData ="""5 3
 1 1 E

@@ -10,7 +10,6 @@ import com.allanmcculloch.martianrobots.extensions.click
 import com.allanmcculloch.martianrobots.extensions.typeText
 
 class MainActivityScreen {
-
     val commandText = R.id.commandsText
     val commandButton = R.id.commandButton
     val resultText = R.id.resultText

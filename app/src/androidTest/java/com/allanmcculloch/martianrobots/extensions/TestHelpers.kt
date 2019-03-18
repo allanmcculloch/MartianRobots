@@ -1,6 +1,5 @@
 package com.allanmcculloch.martianrobots.extensions
 
-import android.view.View
 import androidx.annotation.IdRes
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
