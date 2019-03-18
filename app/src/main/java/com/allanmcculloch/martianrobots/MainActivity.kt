@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         commandButton.setOnClickListener {
-
             var commands = commandsText.text.toString()
 
             val output = CommandParser().Execute(commands)
