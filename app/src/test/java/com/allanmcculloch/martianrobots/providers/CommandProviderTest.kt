@@ -10,35 +10,35 @@ import org.junit.Test
 class CommandProviderTest {
     @Test
     fun getsLeftCommandFromL() {
-        var command = CommandProvider.getCommand('L')
+        val command = CommandProvider.getCommand('L')
 
         assertTrue(command is Left)
     }
 
     @Test
     fun getsRightCommandFromR() {
-        var command = CommandProvider.getCommand('R')
+        val command = CommandProvider.getCommand('R')
 
         assertTrue(command is Right)
     }
 
     @Test
     fun getForwardCommandFromF() {
-        var command = CommandProvider.getCommand('F')
+        val command = CommandProvider.getCommand('F')
 
         assertTrue(command is Forward)
     }
 
     @Test
     fun getsMultipleCommandsFromStringCorrectCount() {
-        var commands = CommandProvider.getCommandList("LLFFFLFLFR")
+        val commands = CommandProvider.getCommandList("LLFFFLFLFR")
 
         assertEquals(10, commands.count())
     }
 
     @Test
     fun getsMultipleCommandsFromStringCorrectTypes() {
-        var commands = CommandProvider.getCommandList("LLFFFLFLFR")
+        val commands = CommandProvider.getCommandList("LLFFFLFLFR")
 
         assertTrue(commands[0] is Left)
         assertTrue(commands[1] is Left)

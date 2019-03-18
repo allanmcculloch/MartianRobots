@@ -14,21 +14,21 @@ class RobotTest {
 
     @Test
     fun getStringReturnsCorrectly() {
-        var robot = Robot(Coordinate(4,3), Orientation.West, false, world)
+        val robot = Robot(Coordinate(4,3), Orientation.West, false, world)
 
         assertEquals("4 3 W", robot.toString())
     }
 
     @Test
     fun getStringReturnsCorrectlyIfLost() {
-        var robot = Robot(Coordinate(1,2), Orientation.East, true, world)
+        val robot = Robot(Coordinate(1,2), Orientation.East, true, world)
 
         assertEquals("1 2 E LOST", robot.toString())
     }
 
     @Test
     fun lostIfMovesOutOfBoundsX() {
-        var robot = Robot(Coordinate(5,3), Orientation.East, false, world)
+        val robot = Robot(Coordinate(5,3), Orientation.East, false, world)
 
         assertFalse(robot.isLost)
 
@@ -39,7 +39,7 @@ class RobotTest {
 
     @Test
     fun lostIfMovesOutOfBoundsY() {
-        var robot = Robot(Coordinate(1,3), Orientation.North, false, world)
+        val robot = Robot(Coordinate(1,3), Orientation.North, false, world)
 
         assertFalse(robot.isLost)
 
@@ -51,7 +51,7 @@ class RobotTest {
     @Test
     fun leavesScentWhenMovesOutOfBoundsY() {
         val initialCoordinate = Coordinate(1,3)
-        var robot = Robot(initialCoordinate, Orientation.North, false, world)
+        val robot = Robot(initialCoordinate, Orientation.North, false, world)
 
         assertFalse(robot.isLost)
 
@@ -63,7 +63,7 @@ class RobotTest {
     @Test
     fun leavesScentWhenMovesOutOfBoundsX() {
         val initialCoordinate = Coordinate(5,3)
-        var robot = Robot(initialCoordinate, Orientation.East, false, world)
+        val robot = Robot(initialCoordinate, Orientation.East, false, world)
 
         assertFalse(robot.isLost)
 
@@ -75,7 +75,7 @@ class RobotTest {
     @Test
     fun doesNotMoveOutOfBoundsIfScent() {
         val initialCoordinate = Coordinate(5,3)
-        var robot = Robot(initialCoordinate, Orientation.East, false, world)
+        val robot = Robot(initialCoordinate, Orientation.East, false, world)
 
         assertFalse(robot.isLost)
         robot.positionX++
@@ -83,7 +83,7 @@ class RobotTest {
         assertTrue(robot.isLost)
         assertTrue(world.isPositionScented(initialCoordinate))
 
-        var robot2 = Robot(initialCoordinate, Orientation.East, false, world)
+        val robot2 = Robot(initialCoordinate, Orientation.East, false, world)
 
         assertFalse(robot2.isLost)
         robot.positionX++

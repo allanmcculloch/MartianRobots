@@ -6,7 +6,7 @@ import com.allanmcculloch.martianrobots.model.Robot
 import com.allanmcculloch.martianrobots.model.World
 
 open class BaseCommandTest {
-    var world : World = World(Coordinate(0,0),Coordinate(5,3))
+    private var world : World = World(Coordinate(0,0), Coordinate(5,3))
 
     fun setupRobot(position : Coordinate, orientation : Orientation) : Robot =
         Robot(position, orientation, false, world)

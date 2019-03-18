@@ -9,7 +9,7 @@ import org.junit.Test
 
 class RobotProviderTest {
     lateinit var robotProvider: RobotProvider
-    var world : World = World(Coordinate(0,0), Coordinate(5,3))
+    private var world : World = World(Coordinate(0,0), Coordinate(5,3))
 
     @Before
     fun Setup() {
@@ -18,7 +18,7 @@ class RobotProviderTest {
 
     @Test
     fun getsRobotEast() {
-        var robot = robotProvider.createRobot("1 1 E")
+        val robot = robotProvider.createRobot("1 1 E")
 
         assertEquals(1, robot.positionX)
         assertEquals(1, robot.positionY)
@@ -27,7 +27,7 @@ class RobotProviderTest {
 
     @Test
     fun getsRobotNorth() {
-        var robot = robotProvider.createRobot("3 2 N")
+        val robot = robotProvider.createRobot("3 2 N")
 
         assertEquals(3, robot.positionX)
         assertEquals(2, robot.positionY)
@@ -36,7 +36,7 @@ class RobotProviderTest {
 
     @Test
     fun getsRobotWest() {
-        var robot = robotProvider.createRobot("0 3 W")
+        val robot = robotProvider.createRobot("0 3 W")
 
         assertEquals(0, robot.positionX)
         assertEquals(3, robot.positionY)
@@ -45,7 +45,7 @@ class RobotProviderTest {
 
     @Test
     fun getsRobotSouth() {
-        var robot = robotProvider.createRobot("3 2 S")
+        val robot = robotProvider.createRobot("3 2 S")
 
         assertEquals(3, robot.positionX)
         assertEquals(2, robot.positionY)
